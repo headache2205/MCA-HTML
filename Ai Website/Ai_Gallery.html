@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MCA Gallery | Department of Computer Applications</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #263238;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================== */
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8edf3;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            min-height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #123b70;
+        }
+
+        .logo span {
+            color: #1976d2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #455a64;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #1976d2;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(9, 45, 90, 0.97),
+                    rgba(25, 118, 210, 0.92)
+                );
+
+            color: white;
+            padding: 85px 0;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            color: #bbdefb;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 64px);
+            line-height: 1.1;
+
+            margin-bottom: 18px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #90caf9;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            color: #e3f2fd;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           GALLERY SECTION
+        ========================== */
+
+        .gallery-section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-label {
+            color: #1976d2;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            color: #123b70;
+
+            font-size: 36px;
+            line-height: 1.2;
+
+            margin-bottom: 14px;
+        }
+
+        .section-heading p {
+            color: #78909c;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           GALLERY GRID
+        ========================== */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(12, 1fr);
+
+            grid-auto-rows: 260px;
+
+            gap: 20px;
+        }
+
+
+        /* =========================
+           GALLERY ITEMS
+        ========================== */
+
+        .gallery-item {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 16px;
+
+            background: #dfe7ef;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(23, 52, 86, 0.08);
+
+            transition: 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(23, 52, 86, 0.16);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           GRID SIZES
+        ========================== */
+
+        .item-large {
+            grid-column: span 7;
+            grid-row: span 2;
+        }
+
+        .item-medium {
+            grid-column: span 5;
+            grid-row: span 1;
+        }
+
+        .item-small {
+            grid-column: span 5;
+            grid-row: span 1;
+        }
+
+        .item-wide {
+            grid-column: span 5;
+            grid-row: span 1;
+        }
+
+
+        /* =========================
+           IMAGE OVERLAY
+        ========================== */
+
+        .overlay {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 60px 25px 22px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(5, 25, 50, 0.88)
+                );
+
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .overlay p {
+            color: #d9edff;
+            font-size: 13px;
+        }
+
+        .view-icon {
+            position: absolute;
+
+            top: 20px;
+            right: 20px;
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.9);
+
+            color: #1455a0;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            transform: translateY(-10px);
+
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover .view-icon {
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           LIGHTBOX
+        ========================== */
+
+        .lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(3, 18, 35, 0.94);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: 0.3s;
+
+            z-index: 2000;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 92%;
+            max-height: 88vh;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.5);
+        }
+
+        .close {
+            position: absolute;
+
+            top: 25px;
+            right: 35px;
+
+            width: 45px;
+            height: 45px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: white;
+            color: #123b70;
+
+            font-size: 28px;
+            font-weight: 300;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .close:hover {
+            background: #1976d2;
+            color: white;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d3b73,
+                    #1976d2
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 70px 0;
+        }
+
+        .cta h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            color: #d9edff;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            background: white;
+            color: #1455a0;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.2);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #081f3d;
+
+            color: #9fb1c4;
+
+            padding: 40px 0 25px;
+        }
+
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        .copyright {
+            text-align: center;
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+
+            padding-top: 22px;
+            margin-top: 25px;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+
+                grid-auto-rows: 240px;
+            }
+
+            .item-large,
+            .item-medium,
+            .item-small,
+            .item-wide {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .item-large {
+                grid-column: span 2;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .gallery-section {
+                padding: 60px 0;
+            }
+
+            .section-heading h2 {
+                font-size: 29px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+
+                grid-auto-rows: 280px;
+            }
+
+            .item-large,
+            .item-medium,
+            .item-small,
+            .item-wide {
+                grid-column: span 1;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <div class="logo">
+                MCA<span> Department</span>
+            </div>
+
+            <nav>
+
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="Ai_Home.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_About.html#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#program">
+                            Program
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_Hod.html">
+                            HOD
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_Gallery.html" class="active">
+                            Gallery
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Department Moments
+                </div>
+
+                <h1>
+                    MCA <span>Gallery</span>
+                </h1>
+
+                <p>
+                    Explore memorable moments, activities and experiences
+                    from the Department of Computer Applications.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         GALLERY
+    ========================== -->
+
+    <section class="gallery-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Our Gallery
+                </div>
+
+                <h2>
+                    Moments That Matter
+                </h2>
+
+                <p>
+                    A glimpse into the academic life, events and memorable
+                    experiences of the MCA department.
+                </p>
+
+            </div>
+
+
+            <div class="gallery">
+
+
+                <!-- IMAGE 1 -->
+
+                <div class="gallery-item item-large"
+                     onclick="openLightbox(this)">
+
+                    <img
+                        src="WhatsApp-Image-2026-04-24-at-6.44.39-PM.jpeg"
+                        alt="MCA Department Event"
+                    >
+
+                    <div class="view-icon">
+                        +
+                    </div>
+
+                    <div class="overlay">
+
+                        <h3>
+                            Department Event
+                        </h3>
+
+                        <p>
+                            MCA Department • 2026
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IMAGE 2 -->
+
+                <div class="gallery-item item-medium"
+                     onclick="openLightbox(this)">
+
+                    <img
+                        src="WhatsApp-Image-2025-09-24-at-10.14.25-PM-scaled.jpeg"
+                        alt="MCA Department Activity"
+                    >
+
+                    <div class="view-icon">
+                        +
+                    </div>
+
+                    <div class="overlay">
+
+                        <h3>
+                            Department Activity
+                        </h3>
+
+                        <p>
+                            MCA Department • 2025
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IMAGE 3 -->
+
+                <div class="gallery-item item-small"
+                     onclick="openLightbox(this)">
+
+                    <img
+                        src="WhatsApp-Image-2025-09-24-at-12.50.32-PM.jpeg"
+                        alt="MCA Academic Activity"
+                    >
+
+                    <div class="view-icon">
+                        +
+                    </div>
+
+                    <div class="overlay">
+
+                        <h3>
+                            Academic Moments
+                        </h3>
+
+                        <p>
+                            MCA Department
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IMAGE 4 -->
+
+                <div class="gallery-item item-medium"
+                     onclick="openLightbox(this)">
+
+                    <img
+                        src="WhatsApp-Image-2025-09-24-at-12.50.32-PM-1.jpeg"
+                        alt="MCA Department Event"
+                    >
+
+                    <div class="view-icon">
+                        +
+                    </div>
+
+                    <div class="overlay">
+
+                        <h3>
+                            Student Activities
+                        </h3>
+
+                        <p>
+                            MCA Department
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IMAGE 5 -->
+
+                <div class="gallery-item item-wide"
+                     onclick="openLightbox(this)">
+
+                    <img
+                        src="WhatsApp-Image-2025-09-24-at-9.42.49-PM-scaled.jpeg"
+                        alt="MCA Department Memories"
+                    >
+
+                    <div class="view-icon">
+                        +
+                    </div>
+
+                    <div class="overlay">
+
+                        <h3>
+                            Department Memories
+                        </h3>
+
+                        <p>
+                            MCA Department
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Discover More About MCA
+            </h2>
+
+            <p>
+                Explore our department, academic programs and leadership.
+            </p>
+
+            <a href="Ai_Home.html" class="btn">
+                Back to Department
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <h3>
+                        Department of Computer Applications
+                    </h3>
+
+                    <p>
+                        Master of Computer Applications
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <p>
+                        Academic Excellence • Innovation • Leadership
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 Department of Computer Applications.
+                All Rights Reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         LIGHTBOX
+    ========================== -->
+
+    <div class="lightbox" id="lightbox">
+
+        <div class="close" onclick="closeLightbox()">
+            &times;
+        </div>
+
+        <img id="lightboxImage" src="" alt="Gallery Image">
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function openLightbox(element) {
+
+            const image =
+                element.querySelector("img");
+
+            const lightbox =
+                document.getElementById("lightbox");
+
+            const lightboxImage =
+                document.getElementById("lightboxImage");
+
+            lightboxImage.src = image.src;
+
+            lightbox.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        function closeLightbox() {
+
+            const lightbox =
+                document.getElementById("lightbox");
+
+            lightbox.classList.remove("active");
+
+            document.body.style.overflow = "auto";
+        }
+
+
+        /* Close when clicking outside image */
+
+        document
+            .getElementById("lightbox")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+                    closeLightbox();
+                }
+
+            });
+
+
+        /* Close with ESC */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+                    closeLightbox();
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

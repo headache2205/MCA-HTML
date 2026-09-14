@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Head of Department | MCA</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #263238;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8edf3;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #123b70;
+        }
+
+        .logo span {
+            color: #1976d2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #455a64;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1976d2;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+        .page-hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(9, 45, 90, 0.97),
+                    rgba(25, 118, 210, 0.92)
+                );
+
+            color: white;
+            padding: 75px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #bbdefb;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .page-hero h1 span {
+            color: #90caf9;
+        }
+
+        .page-hero p {
+            color: #e3f2fd;
+            font-size: 17px;
+            max-width: 650px;
+        }
+
+        /* =========================
+           PROFILE SECTION
+        ========================== */
+        .profile-section {
+            padding: 80px 0;
+        }
+
+        .profile-card {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(23, 52, 86, 0.10);
+        }
+
+        /* =========================
+           PROFILE SIDEBAR
+        ========================== */
+        .profile-sidebar {
+            background: linear-gradient(
+                160deg,
+                #0d3b73,
+                #1976d2
+            );
+
+            color: white;
+            padding: 45px 35px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 220px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 5px solid rgba(255,255,255,0.2);
+            margin-bottom: 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .profile-sidebar h2 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .designation {
+            color: #bbdefb;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .profile-line {
+            width: 50px;
+            height: 3px;
+            background: #90caf9;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        .profile-info {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .profile-info div {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            font-size: 14px;
+            color: #e3f2fd;
+        }
+
+        .profile-info div:last-child {
+            border-bottom: none;
+        }
+
+        /* =========================
+           BIOGRAPHY
+        ========================== */
+        .profile-content {
+            padding: 50px;
+        }
+
+        .section-label {
+            color: #1976d2;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .profile-content h2 {
+            font-size: 32px;
+            color: #123b70;
+            line-height: 1.25;
+            margin-bottom: 25px;
+        }
+
+        .profile-content p {
+            font-size: 16px;
+            color: #607d8b;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           HIGHLIGHTS
+        ========================== */
+        .highlights {
+            margin-top: 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .highlight {
+            background: #f5f9ff;
+            border: 1px solid #e2edf9;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .highlight h3 {
+            color: #123b70;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .highlight p {
+            margin: 0;
+            font-size: 13px;
+            color: #78909c;
+        }
+
+        /* =========================
+           CAREER SECTION
+        ========================== */
+        .career-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading h2 {
+            color: #123b70;
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #78909c;
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .career-card {
+            padding: 30px;
+            border: 1px solid #e7edf4;
+            border-radius: 15px;
+            background: #f9fbfd;
+            transition: 0.3s;
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(25,118,210,0.08);
+        }
+
+        .career-number {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: #e5f1ff;
+            color: #1976d2;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .career-card h3 {
+            color: #123b70;
+            margin-bottom: 10px;
+        }
+
+        .career-card p {
+            color: #78909c;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        footer {
+            background: #081f3d;
+            color: #9fb1c4;
+            padding: 40px 0 25px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        .copyright {
+            padding-top: 25px;
+            margin-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .profile-card {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-sidebar {
+                padding: 40px 25px;
+            }
+
+            .profile-content {
+                padding: 40px 30px;
+            }
+
+            .career-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .page-hero {
+                padding: 60px 0;
+            }
+
+            .page-hero h1 {
+                font-size: 38px;
+            }
+
+            .profile-section,
+            .career-section {
+                padding: 55px 0;
+            }
+
+            .profile-image {
+                width: 190px;
+                height: 230px;
+            }
+
+            .profile-content h2 {
+                font-size: 27px;
+            }
+
+            .profile-content p {
+                font-size: 15px;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <header>
+
+        <div class="container navbar">
+
+            <div class="logo">
+                MCA<span> Department</span>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="Ai_Home.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_About.html#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_Home.html#program">Program</a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_Hod.html">HOD</a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PAGE HERO
+    ========================== -->
+    <section class="page-hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Department Leadership
+                </div>
+
+                <h1>
+                    Head of the <span>Department</span>
+                </h1>
+
+                <p>
+                    Meet the academic leader guiding the Department of
+                    Computer Applications towards excellence in education,
+                    innovation and professional development.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+    <section class="profile-section">
+
+        <div class="container">
+
+            <div class="profile-card">
+
+                <!-- PROFILE SIDEBAR -->
+                <aside class="profile-sidebar">
+
+                    <img
+                        src="hod-mca.jpg"
+                        alt="Prof. Sreeja K"
+                        class="profile-image"
+                    >
+
+                    <h2>Prof. Sreeja K</h2>
+
+                    <div class="designation">
+                        Head of Department — MCA
+                    </div>
+
+                    <div class="profile-line"></div>
+
+                    <div class="profile-info">
+
+                        <div>
+                            <strong>Department</strong><br>
+                            Computer Applications
+                        </div>
+
+                        <div>
+                            <strong>Qualification</strong><br>
+                            Master of Computer Applications
+                        </div>
+
+                        <div>
+                            <strong>Institution</strong><br>
+                            Mohandas College of Engineering
+                        </div>
+
+                    </div>
+
+                </aside>
+
+
+                <!-- BIOGRAPHY -->
+                <main class="profile-content">
+
+                    <div class="section-label">
+                        About the HOD
+                    </div>
+
+                    <h2>
+                        Prof. Sreeja K
+                    </h2>
+
+                    <p>
+                        Prof. Sreeja K obtained her Master of Computer
+                        Applications (MCA) from Government Engineering
+                        College, Thrissur, Kerala.
+                    </p>
+
+                    <p>
+                        She joined Mohandas College of Engineering in 2003
+                        as a System Analyst. During her tenure, she was
+                        responsible for monitoring and analysing the campus
+                        automation software, designing and administering the
+                        campus network, and managing data integration across
+                        the institution.
+                    </p>
+
+                    <p>
+                        Since 2007, she has been serving as an Assistant
+                        Professor in the Department of MCA. From 2014 onwards,
+                        she has also been serving as the Head of the Department
+                        of MCA.
+                    </p>
+
+                    <p>
+                        Prior to joining MCET, she worked as a System Analyst
+                        at the State Project Director's Office, DPEP,
+                        Trivandrum, where she headed the State MIS Unit of the
+                        project implementation body.
+                    </p>
+
+                    <p>
+                        Her responsibilities included educational planning,
+                        budget preparation, monitoring and analysis of key
+                        project variables, and coordinating project data and
+                        achievements across various fields.
+                    </p>
+
+                    <div class="highlights">
+
+                        <div class="highlight">
+
+                            <h3>Academic Leadership</h3>
+
+                            <p>
+                                Leading the Department of MCA since 2014 while
+                                supporting academic excellence and student
+                                development.
+                            </p>
+
+                        </div>
+
+
+                        <div class="highlight">
+
+                            <h3>Technical Experience</h3>
+
+                            <p>
+                                Extensive experience in campus automation,
+                                networking, system analysis and data
+                                integration.
+                            </p>
+
+                        </div>
+
+
+                        <div class="highlight">
+
+                            <h3>Project Management</h3>
+
+                            <p>
+                                Experience in educational planning, monitoring,
+                                budgeting and analysis of project data.
+                            </p>
+
+                        </div>
+
+
+                        <div class="highlight">
+
+                            <h3>National Contribution</h3>
+
+                            <p>
+                                Served as a member of the National
+                                Implementation Team for DISE — District
+                                Information System for Education.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </main>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROFESSIONAL EXPERIENCE
+    ========================== -->
+    <section class="career-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Professional Journey
+                </div>
+
+                <h2>
+                    Experience & Contributions
+                </h2>
+
+                <p>
+                    A combination of academic leadership, technology
+                    expertise and experience in educational information
+                    systems.
+                </p>
+
+            </div>
+
+
+            <div class="career-grid">
+
+                <div class="career-card">
+
+                    <div class="career-number">
+                        01
+                    </div>
+
+                    <h3>
+                        System Analyst
+                    </h3>
+
+                    <p>
+                        Joined Mohandas College of Engineering in 2003 as a
+                        System Analyst, handling campus automation,
+                        networking and institutional data integration.
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Assistant Professor
+                    </h3>
+
+                    <p>
+                        Serving as an Assistant Professor in the Department
+                        of MCA since 2007, contributing to teaching and
+                        academic development.
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Head of Department
+                    </h3>
+
+                    <p>
+                        Taking responsibility as Head of the Department of
+                        MCA from 2014 onwards, guiding academic activities
+                        and departmental initiatives.
+                    </p>
+
+                </div>
+
+
+                <div class="career-card">
+
+                    <div class="career-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Educational Information Systems
+                    </h3>
+
+                    <p>
+                        Worked with the State Project Director's Office,
+                        DPEP, Trivandrum, and contributed to educational
+                        planning, MIS operations and project monitoring.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+                    <h3>Department of Computer Applications</h3>
+                    <p>
+                        Master of Computer Applications
+                    </p>
+                </div>
+
+                <div>
+                    <p>
+                        Academic Excellence • Innovation • Leadership
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © 2026 Department of Computer Applications.
+                All Rights Reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MASTEC | MCA Department Associations</title>
+
+    <style>
+
+        /* =====================================
+           RESET & GLOBAL
+        ====================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #263238;
+            line-height: 1.75;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+
+        /* =====================================
+           NAVIGATION
+        ====================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid #e7edf4;
+
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            min-height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #123b70;
+        }
+
+        .logo span {
+            color: #1976d2;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #455a64;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #1976d2;
+        }
+
+
+        /* =====================================
+           HERO
+        ====================================== */
+
+        .hero {
+            position: relative;
+
+            padding: 95px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #092d5a,
+                    #1976d2
+                );
+
+            color: white;
+
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -150px;
+            top: -170px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            left: -100px;
+            bottom: -130px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            color: #bbdefb;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 64px);
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #90caf9;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            color: #e3f2fd;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================
+           INTRO CARD
+        ====================================== */
+
+        .intro-wrapper {
+            margin-top: -45px;
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-card {
+            display: grid;
+
+            grid-template-columns: 1.5fr 0.5fr;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 18px 45px rgba(23, 52, 86, 0.12);
+
+            overflow: hidden;
+        }
+
+        .intro-content {
+            padding: 40px;
+        }
+
+        .section-label {
+            color: #1976d2;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .intro-content h2 {
+            color: #123b70;
+
+            font-size: 31px;
+
+            margin-bottom: 15px;
+        }
+
+        .intro-content p {
+            color: #607d8b;
+            font-size: 15px;
+        }
+
+        .intro-badge {
+            display: flex;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d3b73,
+                    #1976d2
+                );
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .intro-badge .big {
+            font-size: 48px;
+            font-weight: 800;
+
+            line-height: 1;
+        }
+
+        .intro-badge span {
+            color: #bbdefb;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin-top: 8px;
+        }
+
+
+        /* =====================================
+           QUICK NAVIGATION
+        ====================================== */
+
+        .quick-nav-section {
+            padding: 70px 0 30px;
+        }
+
+        .quick-nav {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .year-link {
+            display: inline-block;
+
+            padding: 9px 17px;
+
+            background: white;
+
+            border: 1px solid #dfe7ef;
+
+            border-radius: 50px;
+
+            color: #455a64;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .year-link:hover {
+            background: #1976d2;
+            border-color: #1976d2;
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================
+           MAIN CONTENT
+        ====================================== */
+
+        .content-section {
+            padding: 45px 0 100px;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            max-width: 720px;
+
+            margin: 0 auto 55px;
+        }
+
+        .section-heading h2 {
+            color: #123b70;
+
+            font-size: 36px;
+
+            line-height: 1.2;
+
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #78909c;
+            font-size: 15px;
+        }
+
+
+        /* =====================================
+           YEAR BLOCK
+        ====================================== */
+
+        .year-block {
+            position: relative;
+
+            margin-bottom: 80px;
+        }
+
+        .year-heading {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .year-number {
+            min-width: 76px;
+            height: 76px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d3b73,
+                    #1976d2
+                );
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            box-shadow:
+                0 10px 25px rgba(25,118,210,0.18);
+        }
+
+        .year-heading h2 {
+            color: #123b70;
+
+            font-size: 30px;
+        }
+
+        .year-heading p {
+            color: #90a4ae;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================
+           EVENTS
+        ====================================== */
+
+        .events {
+            display: grid;
+
+            gap: 22px;
+
+            padding-left: 94px;
+        }
+
+        .event-card {
+            position: relative;
+
+            background: white;
+
+            border: 1px solid #e5ebf2;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 7px 25px rgba(23, 52, 86, 0.05);
+
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 35px rgba(23, 52, 86, 0.09);
+
+            border-color: #d2e4f8;
+        }
+
+        .event-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: -31px;
+            top: 35px;
+
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #1976d2;
+
+            border: 4px solid #e5f1ff;
+
+            box-shadow:
+                0 0 0 1px #1976d2;
+        }
+
+        .event-card h3 {
+            color: #123b70;
+
+            font-size: 21px;
+
+            line-height: 1.4;
+
+            margin-bottom: 16px;
+        }
+
+        .event-card p {
+            color: #607d8b;
+
+            font-size: 14px;
+
+            margin-bottom: 17px;
+
+            text-align: justify;
+        }
+
+        .event-card p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================
+           EVENT META
+        ====================================== */
+
+        .event-meta {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+        }
+
+        .meta {
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 6px 11px;
+
+            border-radius: 6px;
+
+            background: #eef6ff;
+
+            color: #1455a0;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================
+           LISTS
+        ====================================== */
+
+        .event-card ul {
+            margin: 12px 0 20px;
+
+            padding-left: 20px;
+
+            color: #607d8b;
+        }
+
+        .event-card li {
+            padding-left: 5px;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+        }
+
+        .event-card li::marker {
+            color: #1976d2;
+        }
+
+
+        /* =====================================
+           HIGHLIGHT BOX
+        ====================================== */
+
+        .highlight-box {
+            margin: 22px 0;
+
+            padding: 20px 22px;
+
+            background: #f3f8fe;
+
+            border-left: 4px solid #1976d2;
+
+            border-radius: 8px;
+        }
+
+        .highlight-box strong {
+            color: #123b70;
+        }
+
+        .highlight-box p {
+            margin: 5px 0 0;
+        }
+
+
+        /* =====================================
+           AWARD
+        ====================================== */
+
+        .award {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 5px 0 20px;
+
+            padding: 10px 15px;
+
+            background: #fff8e1;
+
+            border: 1px solid #ffe8a1;
+
+            border-radius: 8px;
+
+            color: #795900;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================
+           DIVIDER
+        ====================================== */
+
+        .year-divider {
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #dfe7ef,
+                    transparent
+                );
+
+            margin: 0 0 75px;
+        }
+
+
+        /* =====================================
+           CTA
+        ====================================== */
+
+        .cta {
+            padding: 75px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d3b73,
+                    #1976d2
+                );
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 34px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            color: #d9edff;
+
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 24px;
+
+            background: white;
+
+            color: #1455a0;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.2);
+        }
+
+
+        /* =====================================
+           FOOTER
+        ====================================== */
+
+        footer {
+            background: #081f3d;
+
+            color: #9fb1c4;
+
+            padding: 40px 0 25px;
+        }
+
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        footer h3 {
+            color: white;
+
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        .copyright {
+            text-align: center;
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+
+            padding-top: 22px;
+
+            margin-top: 25px;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================
+           RESPONSIVE TABLET
+        ====================================== */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .intro-card {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-badge {
+                padding: 35px;
+            }
+
+            .events {
+                padding-left: 55px;
+            }
+
+            .event-card::before {
+                left: -27px;
+            }
+
+        }
+
+
+        /* =====================================
+           RESPONSIVE MOBILE
+        ====================================== */
+
+        @media (max-width: 600px) {
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .intro-content {
+                padding: 28px;
+            }
+
+            .intro-content h2 {
+                font-size: 27px;
+            }
+
+            .quick-nav-section {
+                padding-top: 50px;
+            }
+
+            .content-section {
+                padding-bottom: 65px;
+            }
+
+            .section-heading h2 {
+                font-size: 29px;
+            }
+
+            .year-heading {
+                align-items: flex-start;
+            }
+
+            .year-number {
+                min-width: 62px;
+                height: 62px;
+
+                border-radius: 14px;
+
+                font-size: 12px;
+            }
+
+            .year-heading h2 {
+                font-size: 25px;
+            }
+
+            .events {
+                padding-left: 0;
+            }
+
+            .event-card {
+                padding: 24px 20px;
+            }
+
+            .event-card::before {
+                display: none;
+            }
+
+            .event-card h3 {
+                font-size: 19px;
+            }
+
+            .event-card p {
+                text-align: left;
+                font-size: 14px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         NAVIGATION
+    ====================================== -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <div class="logo">
+                MCA<span> Department</span>
+            </div>
+
+            <nav>
+
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="Ai_Home.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_About.html#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_Hod.html">
+                            HOD
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_Gallery.html">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Ai_MCA_Associations.html"
+                           class="active">
+                            Associations
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Student Association
+                </div>
+
+                <h1>
+                    MASTEC <span>Association</span>
+                </h1>
+
+                <p>
+                    A vibrant platform of the MCA Department dedicated to
+                    technical excellence, innovation, personality development,
+                    entrepreneurship and meaningful student engagement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         INTRO
+    ====================================== -->
+
+    <div class="container intro-wrapper">
+
+        <div class="intro-card">
+
+            <div class="intro-content">
+
+                <div class="section-label">
+                    About MASTEC
+                </div>
+
+                <h2>
+                    Association of MCA Students & Staff
+                </h2>
+
+                <p>
+                    MASTEC is an association consisting of MCA students and
+                    staff. It focuses on the overall personality development
+                    of students and provides a platform for developing
+                    technical abilities as well as broader personal skills.
+                </p>
+
+                <p>
+                    The association regularly conducts invited lectures,
+                    seminars, webinars, cultural programmes and technical
+                    events for MCA students.
+                </p>
+
+            </div>
+
+
+            <div class="intro-badge">
+
+                <div class="big">
+                    MCA
+                </div>
+
+                <span>
+                    Innovation • Learning • Leadership
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         YEAR NAVIGATION
+    ====================================== -->
+
+    <section class="quick-nav-section">
+
+        <div class="container">
+
+            <div class="quick-nav">
+
+                <a href="#mastEC-2026" class="year-link">
+                    MASTEC 2026
+                </a>
+
+                <a href="#mastec-2025" class="year-link">
+                    MASTEC 2025
+                </a>
+
+                <a href="#mastec-2024" class="year-link">
+                    MASTEC 2024
+                </a>
+
+                <a href="#mastec-2023" class="year-link">
+                    MASTEC 2023
+                </a>
+
+                <a href="#mastec-2022" class="year-link">
+                    MASTEC 2022
+                </a>
+
+                <a href="#mastec-2021" class="year-link">
+                    MASTEC 2021
+                </a>
+
+                <a href="#mastec-2019" class="year-link">
+                    MASTEC 2019
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="content-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Activities & Events
+                </div>
+
+                <h2>
+                    MASTEC Through the Years
+                </h2>
+
+                <p>
+                    Explore the major academic, technical, professional and
+                    co-curricular initiatives organized by MASTEC.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 MASTEC 2026
+            ================================== -->
+
+            <section class="year-block" id="mastEC-2026">
+
+                <div class="year-heading">
+
+                    <div class="year-number">
+                        2026
+                    </div>
+
+                    <div>
+                        <h2>MASTEC-2026</h2>
+
+                        <p>
+                            Academic Year 2025–26
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="events">
+
+
+                    <!-- Event -->
+
+                    <article class="event-card">
+
+                        <h3>
+                            MASTEC Inauguration 2026
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                21 January 2026
+                            </span>
+
+                            <span class="meta">
+                                10:30 AM – 12:15 PM
+                            </span>
+
+                        </div>
+
+                        <p>
+                            The Department of Master of Computer Applications
+                            at Mohandas College of Engineering and Technology
+                            successfully conducted the MASTEC Inauguration
+                            2026 on Wednesday, 21 January 2026. The programme
+                            formally inaugurated the association's activities
+                            for the academic year and was intended to encourage
+                            students through academic, technical and
+                            co-curricular initiatives.
+                        </p>
+
+                        <p>
+                            Mr. Arif Mohammed, Director of JHF IT Innovations,
+                            attended the programme as Chief Guest. His presence
+                            brought an industry-oriented perspective to the
+                            inauguration.
+                        </p>
+
+                        <p>
+                            The programme began at 10:30 AM with a prayer and
+                            was followed by a welcome address from Prof.
+                            Sreeja K., HoD in charge of the MCA Department.
+                        </p>
+
+                        <p>
+                            The inaugural programme included the following:
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                Presidential Address by V. Suresh Babu,
+                                Principal.
+                            </li>
+
+                            <li>
+                                Address by Director Sreekanth Narayanan.
+                            </li>
+
+                            <li>
+                                Presentation of the MASTEC report by
+                                Subha Ramachandran, Faculty Advisor.
+                            </li>
+
+                            <li>
+                                Release of the MASTEC Anthem and Website.
+                            </li>
+
+                            <li>
+                                Prize Distribution.
+                            </li>
+
+                            <li>
+                                Inaugural Address by Arif Mohammed,
+                                Director, JHF IT Innovations.
+                            </li>
+
+                            <li>
+                                Vote of Thanks by Dani M. Panicker,
+                                Secretary, MASTEC.
+                            </li>
+
+                        </ul>
+
+                        <p>
+                            The programme concluded successfully at
+                            12:15 PM.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Event -->
+
+                    <article class="event-card">
+
+                        <h3>
+                            Technical Quiz Competition
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                MASTEC 2026
+                            </span>
+
+                            <span class="meta">
+                                12:30 PM
+                            </span>
+
+                            <span class="meta">
+                                MCA Seminar Hall
+                            </span>
+
+                        </div>
+
+                        <p>
+                            As part of the MASTEC inauguration, a Technical
+                            Quiz Competition was conducted for MCA students
+                            at 12:30 PM in the MCA Seminar Hall.
+                        </p>
+
+                        <p>
+                            The competition encouraged active student
+                            participation and assessed technical knowledge,
+                            logical reasoning and problem-solving ability.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <div class="year-divider"></div>
+
+
+
+            <!-- =================================
+                 MASTEC 2025
+            ================================== -->
+
+            <section class="year-block" id="mastec-2025">
+
+                <div class="year-heading">
+
+                    <div class="year-number">
+                        2025
+                    </div>
+
+                    <div>
+                        <h2>MASTEC-2025</h2>
+
+                        <p>
+                            Innovation, technical learning & career readiness
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="events">
+
+
+                    <!-- Pixel2Prototype -->
+
+                    <article class="event-card">
+
+                        <h3>
+                            Start Up Idea Competition '25
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                Pixel2Prototype
+                            </span>
+
+                            <span class="meta">
+                                Innovation & Entrepreneurship
+                            </span>
+
+                        </div>
+
+                        <p>
+                            The MCA Department, under the MASTEC banner,
+                            organized Pixel2Prototype, a startup idea
+                            competition intended to encourage innovation,
+                            entrepreneurship and problem-solving among
+                            students.
+                        </p>
+
+                        <p>
+                            The programme encouraged students to transform
+                            creative concepts into practical prototype-oriented
+                            ideas.
+                        </p>
+
+                        <div class="highlight-box">
+
+                            <strong>
+                                Objectives
+                            </strong>
+
+                            <ul>
+
+                                <li>
+                                    Encourage innovation and creativity among
+                                    students.
+                                </li>
+
+                                <li>
+                                    Promote an entrepreneurial mindset and
+                                    startup culture.
+                                </li>
+
+                                <li>
+                                    Give students a platform for presenting
+                                    solutions to real-world problems.
+                                </li>
+
+                                <li>
+                                    Connect conceptual ideas with practical
+                                    implementation.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <p>
+                            Students registered online and submitted their
+                            innovative startup concepts within the specified
+                            deadline. The ideas addressed real-world
+                            challenges and were assessed on originality,
+                            feasibility, innovation and potential impact.
+                        </p>
+
+                        <p>
+                            The competition encouraged students to go beyond
+                            textbook learning and use their technical
+                            knowledge creatively.
+                        </p>
+
+                        <div class="award">
+                            🏆 Top Idea Award — Cash Prize ₹1000/-
+                        </div>
+
+                        <p>
+                            The Top Idea Award was won by Mohammed Aminshad
+                            from the AI &amp; ML stream. His concept was
+                            recognized for its innovation, feasibility and
+                            potential real-world impact.
+                        </p>
+
+                        <p>
+                            Pixel2Prototype became an important MASTEC
+                            initiative for encouraging students to turn
+                            innovative thoughts into structured startup
+                            concepts. It also supported the development of an
+                            entrepreneurial environment within the institution
+                            and encouraged students to pursue
+                            innovation-oriented careers.
+                        </p>
+
+                        <p>
+                            The Department of MCA plans to continue similar
+                            initiatives to strengthen industry-relevant skills
+                            and entrepreneurial exposure among students.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Technical Talk -->
+
+                    <article class="event-card">
+
+                        <h3>
+                            Technical Talk
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                28 April 2025
+                            </span>
+
+                            <span class="meta">
+                                9:30 AM – 11:00 AM
+                            </span>
+
+                            <span class="meta">
+                                Mini Auditorium
+                            </span>
+
+                        </div>
+
+                        <p>
+                            MASTEC conducted a Technical Talk on 28 April 2025
+                            from 9:30 AM to 11:00 AM at the Mini Auditorium.
+                        </p>
+
+                        <p>
+                            S2 MCA students delivered presentations covering
+                            emerging areas in computer applications:
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                <strong>J R Aaliya:</strong>
+                                Cyber Security and Networking, including
+                                important challenges and methods for
+                                protecting digital infrastructure.
+                            </li>
+
+                            <li>
+                                <strong>Nandana Keshav:</strong>
+                                Synthetic Data Generation and its importance
+                                in data science and artificial intelligence
+                                applications.
+                            </li>
+
+                            <li>
+                                <strong>Swathi Ajith Kumar:</strong>
+                                Cyber Forensics and its Impact, focusing on
+                                the importance of digital investigation in
+                                addressing cybercrime.
+                            </li>
+
+                        </ul>
+
+                        <p>
+                            The programme gave students an opportunity to
+                            strengthen technical communication,
+                            public-speaking confidence and peer learning
+                            while discussing current industry-relevant
+                            subjects.
+                        </p>
+
+                        <p>
+                            The event received positive feedback from faculty
+                            and students and demonstrated the value of
+                            student-led technical discussions in connecting
+                            classroom education with practical applications.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Technical Events -->
+
+                    <article class="event-card">
+
+                        <h3>
+                            Technical Events
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                21 March 2025
+                            </span>
+
+                            <span class="meta">
+                                12:30 PM
+                            </span>
+
+                            <span class="meta">
+                                Internet Lab
+                            </span>
+
+                        </div>
+
+                        <p>
+                            MASTEC organized a series of technical events on
+                            21 March 2025 at 12:30 PM in the Internet Lab.
+                        </p>
+
+                        <p>
+                            The programme consisted of two major activities:
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                <strong>CodeQuest: FunLearn:</strong>
+                                A practical technical session conducted by
+                                MCA students Yasar and Mr. Sivasankar. They
+                                demonstrated how a full-stack application
+                                could be developed in approximately ten
+                                minutes, providing peers with practical
+                                insights and demonstrating the value of
+                                student-to-student knowledge sharing.
+                            </li>
+
+                            <li>
+                                <strong>Valorant: Gaming Competition:</strong>
+                                An e-sports competition involving teams of
+                                five players. The activity encouraged
+                                teamwork and competitive spirit, with the
+                                winning team receiving a cash prize of ₹1000.
+                            </li>
+
+                        </ul>
+
+                        <p>
+                            The programme combined technical learning with
+                            engaging activities and gave students opportunities
+                            to develop practical skills while participating
+                            in healthy competition.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Placement Talk -->
+
+                    <article class="event-card">
+
+                        <h3>
+                            Pre-Placement Talk – Guiding MCA Students Towards
+                            Career Readiness
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                17 March 2025
+                            </span>
+
+                            <span class="meta">
+                                MCA Seminar Hall
+                            </span>
+
+                        </div>
+
+                        <p>
+                            MASTEC organized a Pre-Placement Talk on
+                            17 March 2025 at the MCA Seminar Hall.
+                        </p>
+
+                        <p>
+                            The session was conducted by Mr. Manu Manohar,
+                            Chief Operations Officer, Kompetenzen. He
+                            discussed industry expectations, employability
+                            skills and strategies for performing effectively
+                            during placement drives.
+                        </p>
+
+                        <p>
+                            The session emphasized preparation for interviews,
+                            aptitude tests and group discussions, while also
+                            highlighting communication skills, confidence and
+                            continuous learning as important factors for
+                            career development.
+                        </p>
+
+                        <p>
+                            Students were able to clarify their questions,
+                            gain practical information about corporate
+                            culture and understand the importance of
+                            connecting academic learning with real-world
+                            requirements.
+                        </p>
+
+                        <p>
+                            The event was beneficial to MCA students and
+                            encouraged them to take proactive steps towards
+                            placement preparation. The Department of MCA
+                            expressed its appreciation to Mr. Manu Manohar
+                            and the participating students.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <div class="year-divider"></div>
+
+
+
+            <!-- =================================
+                 MASTEC 2024
+            ================================== -->
+
+            <section class="year-block" id="mastec-2024">
+
+                <div class="year-heading">
+
+                    <div class="year-number">
+                        2024
+                    </div>
+
+                    <div>
+                        <h2>MASTEC-2024</h2>
+
+                        <p>
+                            Technical learning & industry exposure
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="events">
+
+
+                    <article class="event-card">
+
+                        <h3>
+                            MASTEC Technical Quiz Competition
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                30 September 2024
+                            </span>
+
+                            <span class="meta">
+                                MCA Seminar Hall
+                            </span>
+
+                            <span class="meta">
+                                12:00 PM – 12:30 PM
+                            </span>
+
+                        </div>
+
+                        <p>
+                            The MCA Department at Mohandas College of
+                            Engineering and Technology conducted a MASTEC
+                            Technical Quiz Competition on 30 September 2024
+                            at the MCA Seminar Hall.
+                        </p>
+
+                        <p>
+                            The competition tested students in areas including
+                            computer applications, logical reasoning and
+                            problem-solving. Participants demonstrated
+                            technical knowledge, teamwork, quick thinking
+                            and enthusiasm.
+                        </p>
+
+                        <div class="highlight-box">
+
+                            <strong>
+                                Winners
+                            </strong>
+
+                            <ul>
+
+                                <li>
+                                    First Prize – Mohammed Shiroz &amp;
+                                    Akash S (S1 MCA)
+                                </li>
+
+                                <li>
+                                    Second Prize – Arjun S &amp;
+                                    Aromal Udayan (S3 MCA)
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <p>
+                            The winners were felicitated by MCA faculty
+                            members. The event highlighted the technical
+                            capabilities of the students and encouraged
+                            peer learning, teamwork, healthy competition
+                            and innovation.
+                        </p>
+
+                        <p>
+                            MASTEC congratulated all the winners and
+                            participants for their contribution to the
+                            success of the programme.
+                        </p>
+
+                    </article>
+
+
+                    <article class="event-card">
+
+                        <h3>
+                            Technical Talk on MERN Full Stack Development
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                13 August 2024
+                            </span>
+
+                            <span class="meta">
+                                1:30 PM – 2:30 PM
+                            </span>
+
+                        </div>
+
+                        <p>
+                            MASTEC organized a Technical Talk on MERN Full
+                            Stack Development on 13 August 2024. The session
+                            was delivered by Ms. Fathima Nizar, Software
+                            Specialist at Networkz Systems.
+                        </p>
+
+                        <p>
+                            The programme was designed to give students
+                            practical knowledge of MERN, consisting of
+                            MongoDB, Express.js, React.js and Node.js,
+                            which is an important skill set in modern
+                            software development.
+                        </p>
+
+                        <p>
+                            Ms. Fathima Nizar explained the principal
+                            components of MERN technology, discussed
+                            real-world applications and described career
+                            opportunities associated with the technology
+                            stack.
+                        </p>
+
+                        <p>
+                            The session received a positive response from
+                            MCA students, who actively interacted with
+                            the speaker.
+                        </p>
+
+                        <p>
+                            The Department of MCA expressed its gratitude
+                            to Networkz Systems and Ms. Fathima Nizar for
+                            their support and contribution.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <div class="year-divider"></div>
+
+
+
+            <!-- =================================
+                 MASTEC 2023
+            ================================== -->
+
+            <section class="year-block" id="mastec-2023">
+
+                <div class="year-heading">
+
+                    <div class="year-number">
+                        2023
+                    </div>
+
+                    <div>
+                        <h2>MASTEC-2023</h2>
+
+                        <p>
+                            Technology, innovation & student development
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="events">
+
+                    <article class="event-card">
+
+                        <h3>
+                            MASTEC '23 Inauguration
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                24 November 2023
+                            </span>
+
+                            <span class="meta">
+                                11:00 AM
+                            </span>
+
+                            <span class="meta">
+                                Civil Auditorium
+                            </span>
+
+                        </div>
+
+                        <p>
+                            MASTEC '23 began with an inaugural address by
+                            Dr. Pradeep Shanmugham, AVP of Nest Digital,
+                            at the Civil Auditorium on 24 November 2023
+                            at 11:00 AM.
+                        </p>
+
+                        <p>
+                            Prof. Sreeja K., Head of the MCA Department,
+                            delivered the welcome address. Dr. Ashalatha
+                            Thampuran, Director of MCET, gave the
+                            Presidential address and emphasized the
+                            importance of technological development in
+                            the modern world.
+                        </p>
+
+                        <p>
+                            Principal Dr. S. Sheela also addressed the
+                            gathering and highlighted the role of such
+                            platforms in encouraging innovation and learning.
+                        </p>
+
+                        <p>
+                            Dr. Pradeep Shanmugham delivered a technical
+                            presentation concerning the development and
+                            future prospects of technology. A memento was
+                            presented to the Chief Guest in recognition
+                            of his contribution.
+                        </p>
+
+                        <p>
+                            Certificates were distributed to winners of
+                            the various competitions conducted during
+                            MASTEC-2023.
+                        </p>
+
+                        <p>
+                            Ms. Neeraja B., Joint Secretary of MASTEC,
+                            expressed thanks to the participants and
+                            contributors.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <div class="year-divider"></div>
+
+
+
+            <!-- =================================
+                 MASTEC 2022
+            ================================== -->
+
+            <section class="year-block" id="mastec-2022">
+
+                <div class="year-heading">
+
+                    <div class="year-number">
+                        2022
+                    </div>
+
+                    <div>
+                        <h2>MASTEC-2022</h2>
+
+                        <p>
+                            Technology, competitions & student development
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="events">
+
+                    <article class="event-card">
+
+                        <h3>
+                            MASTEC Association Activities 2022
+                        </h3>
+
+                        <div class="event-meta">
+
+                            <span class="meta">
+                                24 November 2022
+                            </span>
+
+                            <span class="meta">
+                                Mini Auditorium
+                            </span>
+
+                        </div>
+
+                        <p>
+                            MASTEC was conducted by the MCA Department
+                            on 24 November 2022 at the Mini Auditorium
+                            in the Civil Block. Mr. Anas Abdul Gafoor,
+                            Co-founder and CFO of Talrop, attended as
+                            Chief Guest.
+                        </p>
+
+                        <p>
+                            The programme focused on the overall
+                            development of students and included a
+                            variety of competitions.
+                        </p>
+
+                        <p>
+                            The programme began with prayer and the
+                            lighting of the ceremonial lamp by the
+                            Chief Guest along with Dr. Ashalatha
+                            Thampuran, Director of MCET, Dr. S. Sheela,
+                            Principal of MCET, Prof. Sreeja K., HOD of
+                            the MCA Department, and other dignitaries.
+                        </p>
+
+                        <p>
+                            Dr. Ashalatha Thampuran delivered the
+                            Presidential address and Dr. S. Sheela
+                            delivered the Principal's address. The
+                            Chief Guest spoke about technological
+                            challenges and the past, present and future
+                            development of technology.
+                        </p>
+
+                        <p>
